@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+	<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="/" class="s-text16">
+			{% trans "Home" %}
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="{% url 'core:category' object.category.slug %}" class="s-text16">
+			{{ object.category }}
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<span class="s-text17">
+			{{object.title}}
+		</span>
+	</div>
+
+	<!-- Product Detail -->
+	<div class="container bgwhite p-t-35 p-b-80">
+		<div class="flex-w flex-sb">
+			<div class="w-size13 p-t-30 respon5">
+				<div class="wrap-slick3 flex-sb flex-w">
+					<div class="wrap-slick3-dots"></div>
+
+					<div class="slick3">
+						<div class="item-slick3" data-thumb="{{ object.image.url }}">
+							<div class="wrap-pic-w">
+								<img src="{{ object.image.url }}" alt="{{ object.title }}">
+							</div>
+						</div>
+
+						<div class="item-slick3" data-thumb="{{ object.image2.url }}">
+							<div class="wrap-pic-w">
+								<img src="{{ object.image2.url }}" alt="IMG-PRODUCT">
+							</div>
+
+						</div>
+						{% if object.image3.url %}
+						<div class="item-slick3" data-thumb="{{ object.image3.url }}">
+							<div class="wrap-pic-w">
+								<img src="{{ object.image3.url }}" alt="IMG-PRODUCT">
+							</div>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size14 p-t-30 respon5">
+				<h4 class="product-detail-name m-text16 p-b-13">
+					{{object.title}}
+				</h4>
+
+				
+				{% if object.discount_price %}
+								<span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem;">
+									{{ object.price }} RON
+								</span>
+
+								<span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem;">
+									{{ object.discount_price }} RON
+								</span>
+								{% else %}
+								<span class="m-text17">
+									{{object.price}} RON
+								</span>
+								{% endif %}
+
+				<p class="s-text8 p-t-10">
+					{{ object.description_short }}
+				</p>
+
+				<!--  -->
+				<div class="p-t-33 p-b-60 ">
+					<div class="flex-m flex-w p-b-10">
+						<div class="s-text15 w-size15 t-center">
+							{% trans "Size" %} 
+						</div>
+
+						<div class="rs2-select2 rs3-select2 w-size16">
+							<select class="form-control" name="size" id="size">
+								<option>{% trans "Choose the size" %} </option>
+								<option>S</option>
+								<option>M</option>
+								<option>L</option>
+								<option>XL</option>
+							</select>
+						</div>
+						
+					</div>
+					
+					
+
+					
+					
+					
+		</div>
+					
+
+					<div class="container-fluid"><div class="progress">
+					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+					aria-valuemin="0" aria-valuemax="100" style="width:{{item.remainingPercents}}%;background:orange">
+						{{object.remainingPercents}}%
+					</div>
+					</div>
+					<div class="flex-r-m flex-w ">
+						<div class="p-b-45">
+					<span class="s-text8 m-r-35">{% trans "cantity" %}: {{ object.rQty }}</span>
+					
+				</div>
+				
+						<div class="w-size16 flex-m flex-w">
+							
+							<div class="flex-w bo5 of-hidden ">
+								
+								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+								</button>
+
+								<input class="m-text18 t-center num-product" type="number" readonly name="num-product" id="qty" min="1" value="1" >
+
+								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+								</button>
+							</div>
+							
+							<br>
+							<br>
+							<br>
+
+							{% if item.rQty > 0 %}
+									<button onclick="addToCart({{object.id}})" class="btn btn-primary form-control" style="margin: 2px;">Add To Cart</button>
+											</button>
+									{% else %}
+									<button onclick="addToCart({{object.id}})" class="btn btn-danger form-control" style="margin: 2px;">
+												{% trans "Item Out of Stock" %}
+											</button>
+									{% endif %}
+									
+							
+						
+						</div>
+						
+					</div>
+				</div>
+				
+				
+
+			
+			
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+<script>
+	function addToCart(id)
+	{
+		var size=document.getElementById("size").value;
+		
+		var qty=document.getElementById("qty").value;
+		if(size=='{% trans "Choose the size" %}')
+		{
+			size="M"
+		}
+		
+		data={"item_id":id,"size":size,"Q":qty}
+		console.log(data)
+		$.ajax(
+    {
+        type:"POST",
+        url: "/en/addtocart",
+		headers: {
+
+			"X-CSRFToken": getCookie(),
+		},
+		data: JSON.stringify(data),
+
+        
+        success: function( data ) 
+        {
+
+			document.getElementById("lblCartCount").innerHTML=data["count"];
+			 
+				if (data["msg"]=="Error")
+				{
+						swal(data["item"], data["msg"], "error");
+				}
+				else{
+					swal(data["item"], data["msg"], "success");
+				}
+				
+				
+			
+            console.log(data);
+        }
+     })
+
+	}
+</script>
+	{% endblock content %}

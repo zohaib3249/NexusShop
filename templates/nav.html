@@ -1,0 +1,442 @@
+{% load static %}
+{% load i18n %}
+
+{% load cart_template_tags %}
+{% load category_template_tags %}
+<style>
+	.topbar {
+		background-color: white;
+		color: black !important;
+	}
+
+	.topbar a:hover {
+		color: black;
+	}
+
+	.badge {
+		padding-left: 9px;
+		padding-right: 9px;
+		-webkit-border-radius: 9px;
+		-moz-border-radius: 9px;
+		border-radius: 9px;
+		background-color: white;
+	}
+
+	.label-warning[href],
+	.badge-warning[href] {
+		background-color: #c67605;
+	}
+
+	#lblCartCount {
+		font-size: 12px;
+		background: black;
+		color: #fff;
+		padding: 0 5px;
+		vertical-align: top;
+		margin-left: -10px;
+	}
+</style>
+
+<!-- Header -->
+<header class="header1 container-fluid">
+	<!-- Header desktop -->
+	<div class="container-menu-header">
+		<div class="topbar">
+			<div class="topbar-social">
+				<a href="https://www.facebook.com/nexusgamingro/" class="topbar-social-item fab fa-facebook"></a>
+				<a href="https://instagram.com/nexusgamingro?igshid=YmMyMTA2M2Y="
+					class="topbar-social-item fab fa-instagram"></a>
+				<a href="https://youtube.com/channel/UClxQeD_l3A-jth_PdjyEUwA"
+					class="topbar-social-item fab fa-youtube"></a>
+
+				<form id="langForm" action="{% url 'set_language' %}" method="post">
+					{% csrf_token %}
+
+					{% get_current_language as LANGUAGE_CODE %}
+					<input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+					{% if LANGUAGE_CODE == 'ro' %}
+					<button type="submit" class="codrops-icon" name="language" value="en">
+
+						Romanian</button>
+					{% else %}
+					<button type="submit" class="codrops-icon" name="language" value="ro">
+						English
+					</button>
+					{% endif %}
+				</form>
+
+
+
+			</div>
+
+			<span class="topbar-child1">
+				{% trans "Free delivery for orders that exceed" %} &#108;&#101;&#105;100
+			</span>
+
+			<div class="topbar-child2">
+				<span class="topbar-email">
+					<a href="">
+
+					</a>
+				</span>
+
+			</div>
+		</div>
+
+		<div class="wrap_header">
+			<!-- Logo -->
+			<a href="/" class="logo">
+				<p style="color: black; "><img src="{% static 'images/nexusmedia_new_logo.png' %}"></p>
+			</a>
+
+			<!-- Menu -->
+			<div class="wrap_menu sidebar">
+				<nav class="menu">
+					<ul class="main_menu">
+						{% if request.user.is_authenticated and request.user.is_superuser %}
+						<li>
+							<a href="/adminUser">{% trans "admin" %}</a>
+
+						</li>
+						{% endif %}
+						<li>
+							<a href="/">{% trans "Home" %}</a>
+
+						</li>
+						
+
+						<li>
+							<a href="/shop/">{% trans "All Products" %}</a>
+						</li>
+
+						{% categories %}
+
+						{% if request.user.is_authenticated %}
+
+						<li>
+							<a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+						</li>
+						{% else %}
+						<li>
+							<a href="#">{% trans "Login" %}</a>
+							<ul class="sub_menu">
+								<li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
+								<li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+							</ul>
+						</li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Header Icon -->
+			<div class="header-icons">
+				<div class="nav-item dropdown">
+
+					<a href="#" class="nav-link dropdown-toggle" class="header-wrapicon1 dis-block" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<img src="{% static 'images/icons/icon-header-01.png' %}" class="header-icon1" alt="ICON">
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/myaccount">My Account</a>
+						<a class="dropdown-item" href="/myorders">Orders</a>
+						<a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+
+
+					</div>
+				</div>
+
+
+				<span class="linedivide1"></span>
+				{% if request.user.is_authenticated %}
+				<li>
+					<a href="{% url 'core:order-summary' %}">
+						<img src="{% static 'images/icons/icon-header-02.png' %} " alt="">
+
+
+						<span class="badge badge-dark" id='lblCartCount'>{{ request.user|cart_item_count }}</span>
+					</a>
+				</li>
+
+				{% endif %}
+
+			</div>
+			<!-- Header Mobile -->
+			<div class="wrap_header_mobile">
+				<!-- Logo moblie -->
+				<a href="index.html" class="logo-mobile">
+					<img src="{% static 'images/icons/logo.png' %}" alt="IMG-LOGO">
+				</a>
+
+				<!-- Button show menu -->
+				<div class="btn-show-menu">
+					<!-- Header Icon mobile -->
+					<div class="header-icons-mobile">
+						<a href="#" class="header-wrapicon1 dis-block">
+							<img src="{% static 'images/icons/icon-header-01.png' %}" class="header-icon1" alt="ICON">
+						</a>
+
+						<span class="linedivide2"></span>
+
+						<div class="header-wrapicon2">
+							<img src="{% static 'images/icons/icon-header-02.png' %}"
+								class="header-icon1 js-show-header-dropdown" alt="ICON">
+							<span class="header-icons-noti">0</span>
+
+							<!-- Header cart noti -->
+							<div class="header-cart header-dropdown">
+								<ul class="header-cart-wrapitem">
+									<li class="header-cart-item">
+										<div class="header-cart-item-img">
+											<img src="{% static 'images/item-cart-01.jpg' %}" alt="IMG">
+										</div>
+
+										<div class="header-cart-item-txt">
+											<a href="#" class="header-cart-item-name">
+												{% trans "White Shirt With Pleat Detail Back" %}
+											</a>
+
+											<span class="header-cart-item-info">
+												1 x &#108;&#101;&#105;19.00
+											</span>
+										</div>
+									</li>
+
+									<li class="header-cart-item">
+										<div class="header-cart-item-img">
+											<img src="{% static 'images/item-cart-02.jpg' %}" alt="IMG">
+										</div>
+
+										<div class="header-cart-item-txt">
+											<a href="#" class="header-cart-item-name">
+												{% trans "Converse All Star Hi Black Canvas" %}
+											</a>
+
+											<span class="header-cart-item-info">
+												1 x &#108;&#101;&#105;39.00
+											</span>
+										</div>
+									</li>
+
+									<li class="header-cart-item">
+										<div class="header-cart-item-img">
+											<img src="{% static 'images/item-cart-03.jpg' %}" alt="IMG">
+										</div>
+
+										<div class="header-cart-item-txt">
+											<a href="#" class="header-cart-item-name">
+												{% trans "Nixon Porter Leather Watch In Tan" %}
+											</a>
+
+											<span class="header-cart-item-info">
+												1 x &#108;&#101;&#105;17.00
+											</span>
+										</div>
+									</li>
+								</ul>
+
+								<div class="header-cart-total">
+									{% trans "Total" %}: RON
+								</div>
+
+								<div class="header-cart-buttons">
+									<div class="header-cart-wrapbtn">
+										<!-- Button -->
+										<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											{% trans "View Cart" %}
+										</a>
+									</div>
+
+									<div class="header-cart-wrapbtn">
+										<!-- Button -->
+										<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											{% trans "Check Out" %}
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Menu Mobile -->
+			<div class="wrap-side-menu">
+				<nav class="side-menu">
+					<ul class="main-menu">
+						<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+							<span class="topbar-child1">
+								{% trans "Free shipping for standard order over" %}
+							</span>
+						</li>
+
+						<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+							<div class="topbar-child2-mobile">
+								<span class="topbar-email">
+
+								</span>
+
+							</div>
+						</li>
+
+						<li class="item-topbar-mobile p-l-10">
+							<div class="topbar-social-mobile">
+								<a href="#" class="topbar-social-item fa fa-facebook"></a>
+								<a href="#" class="topbar-social-item fa fa-instagram"></a>
+								<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+								<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+								<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							</div>
+						</li>
+
+
+						<li class=" ">
+							<a href="/">{% trans "Home" %}</a>
+						</li>
+
+						<li class=" ">
+							<a href="/shop">{% trans "Shop" %}</a>
+						</li>
+
+						{% categories_mobile %}
+
+						{% if request.user.is_authenticated %}
+						<li class=" ">
+							<a href="{% url 'core:order-summary' %}">{% trans "Cart" %}<span
+									class="badge badge-dark">{{ request.user|cart_item_count }}</span></a>
+						</li>
+						<li class=" ">
+							<a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+						</li>
+						{% else %}
+						<li class=" ">
+							<a href="#">{% trans "Login" %}</a>
+							<ul class="sub-menu">
+								<li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
+								<li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+							</ul>
+							<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+						</li>
+						{% endif %}
+
+					</ul>
+				</nav>
+			</div>
+
+</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="mobiletopbar">
+	
+		{% if request.user.is_authenticated %}
+			
+			<li class="navbar-brand">
+				Nexus Shop
+				<a href="{% url 'core:order-summary' %}" class="nav-link">{% trans "Cart" %}<span
+						class="badge badge-dark">{{ request.user|cart_item_count }}</span></a>
+			</li>
+			
+			{% else %}
+			<li class="navbar-brand">
+
+				Nexus Shop
+			</li>
+		{% endif %}
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			
+			<li class="nav-item item-topbar-mobile p-l-20 p-t-8 p-b-8">
+				<span class="topbar-child1 nav-link">
+					{% trans "Free shipping for standard order over" %}
+				</span>
+			</li>
+
+			<li class="nav-item  item-topbar-mobile p-l-20 p-t-8 p-b-8">
+				<div class="topbar-child2-mobile nav-link">
+					<span class="topbar-email">
+
+					</span>
+
+				</div>
+			</li>
+
+			<li class="nav-item item-topbar-mobile p-l-10">
+				<div class="topbar-social-mobile nav-link">
+					<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<a href="#" class="topbar-social-item fa fa-instagram"></a>
+					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+				</div>
+			</li>
+
+			
+			{% if request.user.is_authenticated and request.user.is_superuser %}
+				<li class="  nav-item ">
+				<a class="nav-link"  href="/adminUser">{% trans "Admin" %}</a>
+			</li>
+			{% endif %}
+				
+			
+			<li class="  nav-item ">
+				<a class="nav-link"  href="/">{% trans "Home" %}</a>
+			</li>
+			<li class="  nav-item">
+				<a class="nav-link" href="/shop">{% trans "Shop" %}</a>
+			</li>
+			<li class="nav-item">
+					{% categories_mobile %}
+			</li>
+			
+
+			{% if request.user.is_authenticated %}
+			<li class="  nav-item">
+				<a href="{% url 'core:order-summary' %}" class="nav-link">{% trans "Cart" %}<span
+						class="badge badge-dark">{{ request.user|cart_item_count }}</span></a>
+			</li>
+			<li class="  nav-item">
+				<a href="{% url 'account_logout' %}" class="nav-link">{% trans "Logout" %}</a>
+			</li>
+			{% else %}
+			<li class="nav-item">
+				
+					<li><a class="nav-link" href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
+					<li><a class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+				
+				
+			</li>
+			{% endif %}
+
+
+		</ul>
+	</div>
+</nav>
+<script>
+
+	$(window).on('resize', function(){
+		
+		
+    var win = $(this);
+
+    console.log(win.width(), win.height());
+    if (win.width() >= 980) {
+			$("#mobiletopbar").css("display","none")
+			$("#setfooterformobile").css("margin-left","40%")
+	 }
+	 else{
+		$("#mobiletopbar").css("display","block")
+		$("#setfooterformobile").css("margin-left","-10%")
+	 }
+});
+	
+	
+
+</script>

@@ -1,0 +1,140 @@
+{% load static %}
+{% load i18n %}
+<!-- ------------------------------footer sub end---------------------------------- -->
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Abel|Lato|Open+Sans&display=swap" rel="stylesheet">
+<style>
+  
+    /* footer */
+#footer-main{
+	background: #000;
+	color: white;
+	font-size: 0.8rem;
+	padding: 2.5rem 0;
+    font-family: 'Lato', sans-serif;
+}
+
+#footer-main a{
+	font-size: 14px;
+	display: block;
+	margin: 0.3rem;
+	color: grey;
+}
+
+#footer-main a:hover{
+	font-weight: bold;
+	color: white;
+}
+
+#footer-main h6 a{
+    color: white;
+
+    
+}
+
+
+
+#footer-main hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid white;
+}
+
+#footer-main img{
+	margin-right: 0.6rem;
+}
+@media only screen and (max-width: 500px) {
+  .respon3 {
+   margin-left:20%
+  }
+}
+</style>
+
+
+
+<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45 " >
+  <div class="flex-w p-b-90" id="setfooterformobile">  
+    <div class="w-size8 p-t-30 p-l-15 p-r-1 respon3" >
+      <h4 class="s-text12 p-b-30">
+        {% trans "Newsletter" %}
+      </h4>
+      
+      <h4 class="s-text12 p-b-30">
+        {% trans "Everyone that subscribe gets 10% off" %}
+      </h4>
+      <form action="addsubcriber" method="post">
+        {% csrf_token %}
+   
+        <div class="effect1 w-size9">
+          <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@exemplu.com">
+          <span class="effect1-line"></span>
+        </div>
+
+        <div class="w-size2 p-t-20">
+          <!-- Button -->
+          <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+            {% trans "Subscribe" %}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+<footer id="footer-main">
+  
+
+
+    <div class="container">
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-3">
+            <h6 class="mt-3"><a href="">{% trans "COMPANY" %}</a></h6>
+            <a href="/despre_noi">{% trans "ABOUT US" %}</a>
+            <a href="/cum_comand">{% trans "HOW TO ORDER?" %}</a>
+            <a href="/ghid_de_marimi"> {% trans "SIZE GUIDE" %}</a>
+            <a href="/newsletter">{% trans "Subscribe" %}</a>
+        </div>
+        <div class="col-sm-3">
+            <h6 class="mt-3"><a href="">{% trans "HELP" %}</a></h6>
+            <a href="/politica_de_retur">{% trans "RETURN POLICY" %}</a>
+            <a href="/termenii_si_conditiile">{% trans "TERMS AND CONDITIONS" %}</a>
+            <a href="/politica_de_confidentialitate">{% trans "PRIVACY POLICY" %}</a>
+            <a href="/contacteaza_ne">{% trans "CONTACT US" %}</a>
+
+
+
+
+        </div>
+        <div class="col-sm-3">
+          <a href="">NEXUS GAMING S.R.L.</a>
+          <a href="">Bd. Tudor Vladimirescu, Nr. 45, Subsol 2, Sector 5, Bucuresti, România</a>
+
+
+          <br><br>
+          <a href="">{% trans "Phone" %}: 0787 222 862</a>
+          <a href="">{% trans "Email" %}: office@nexusclub.ro</a>
+
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          
+        </div>
+        <div class="col-sm-6">
+          
+        </div>
+        <hr>
+        <a href="https://nexusclub.ro/" style="margin-left: 1rem">@2018 Nexus Gaming</a>
+      </div>
+    </div>
+  </footer>
+<!-- ------------------------------footer end---------------------------------- -->
+

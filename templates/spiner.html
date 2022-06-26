@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style type="text/css">
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  .animsition-stop {
+    position: absolute;
+    top: 40%;
+    
+    width: 100%;
+    margin-left:40%
+  }
+
+  .loader {
+    .loader {
+  left: 50%;
+  margin-left: -4em;
+}
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border: 15px solid;
+    border-radius: 50%;
+    border-top-color: rgba(44, 44, 44, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(66, 66, 66, 0);
+    border-left-color: rgba(33, 33, 33, 0);
+    animation: loadEr 3s infinite;
+  }
+
+  @keyframes loadEr {
+    0% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+
+    }
+
+    10.4% {
+      border-top-color: rgba(44, 44, 44, 0.5);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+    }
+
+    20.8% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+    }
+
+    31.2% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0.5);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+    }
+
+    41.6% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+      transform: rotate(40deg);
+    }
+
+    52% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0.5);
+      border-left-color: rgba(33, 33, 33, 0);
+    }
+
+    62.4% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0);
+    }
+
+    72.8% {
+      border-top-color: rgba(44, 44, 44, 0);
+      border-right-color: rgba(55, 55, 55, 0);
+      border-bottom-color: rgba(66, 66, 66, 0);
+      border-left-color: rgba(33, 33, 33, 0.5);
+    }
+  }
+
+  .loaderbefore {
+    width: 50px;
+    height: 50px;
+    border: 15px solid #ddd;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+  }
+
+  .circular {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 70px;
+    height: 70px;
+    border: 20px solid;
+    border-radius: 50%;
+    border-top-color: #333;
+    border-left-color: #fff;
+    border-bottom-color: #333;
+    border-right-color: #fff;
+    opacity: 0.2;
+    animation: poof 5s infinite;
+  }
+
+  @keyframes poof {
+    0% {
+      transform: scale(1, 1) rotate(0deg);
+      opacity: 0.2;
+    }
+
+    50% {
+      transform: scale(4, 4) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .another {
+    opacity: 0.1;
+    transform: rotate(90deg);
+    animation: poofity 5s infinite;
+    animation-delay: 1s;
+  }
+
+  @keyframes poofity {
+    0% {
+      transform: scale(1, 1) rotate(90deg);
+      opacity: 0.1;
+    }
+
+    50% {
+      transform: scale(4, 4) rotate(-360deg);
+      opacity: 0;
+    }
+  }
+
+  .text {
+    position: absolute;
+    top: 95px;
+    left: 8px;
+    font-family: Arial;
+    text-transform: uppercase;
+    color: #888;
+    animation: opaa 10s infinite;
+  }
+
+  @keyframes opaa {
+    0% {
+      opacity: 1;
+    }
+
+    10% {
+      opacity: 0.5
+    }
+
+    15% {
+      opacity: 1;
+    }
+
+    30% {
+      opacity: 1;
+    }
+
+    65% {
+      opacity: 0.3;
+    }
+
+    90% {
+      opacity: 0.8;
+    }
+  }
+</style>
+
+<body class="">
+ 
+  <div class="animsition-stop">
+    <div class="spinner-border" role="status">
+    <div class="loader"></div>
+    <div class="loaderbefore"></div>
+    <div class="circular"></div>
+    <div class="circular another"></div>
+    <div class="text">Loading</div>
+  
+  </div>
+  
+
+
+  <script>
+    function getCookie() {
+      var name = "csrftoken"
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + "=")) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+
+
+    $(window).on('load', function () {
+      //$('.animsition-stop').hide();
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load category_template_tags %}
+{% load cart_template_tags %}
+{% block content %}
+
+
+
+<style type="text/css">
+	.selection-2 {
+		display: block;
+		width: 100%;
+		height: calc(1.5em + .75rem + 2px);
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #495057;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da !important;
+		border-radius: .25rem;
+		transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	}
+</style>
+
+<!-- Title Page -->
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/media/{{ category_image }});">
+	<h2 class="l-text2 t-center">
+		{{ category_title }}
+	</h2>
+	<p class="m-text13 t-center">
+		{{ category_description }}
+	</p>
+</section>
+
+
+<!-- Content page -->
+<section class="bgwhite p-t-55 p-b-65">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+				<div class="leftbar p-r-20 p-r-0-sm">
+					<!--  -->
+					<div class="search-product pos-relative bo4 of-hidden">
+						<input onkeyup="searchFunc()" id="searchBarInput" class="s-text7 size6 p-l-23 p-r-50"
+							type="text" name="search-product" placeholder="Cauta Produse...">
+
+						<button id="search_submit" type="submit"
+							class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+							<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+						</button>
+
+
+
+					</div>
+
+					<h4 class="m-text14 p-b-7">
+						{% trans "Categories" %}
+					</h4>
+
+
+					<ul class="p-b-54">
+						<li class="p-t-4">
+							<a href="/shop" class="s-text13 active1">
+								{% trans "All" %}
+							</a>
+						</li>
+
+						{% categories_li_a %}
+
+					</ul>
+
+
+
+
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+				<!--  -->
+				<div class="flex-sb-m flex-w p-b-35">
+					<div class="flex-w">
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" name="sorting" onchange="filter_items('ranged','sortPrice')" id="ranged">
+								<option value="0">{% trans "Default Sort" %}</option>
+								<option value="1">{% trans "Price: small to large" %}</option>
+								<option value="2">{% trans "Price: large to small" %}</option>
+							</select>
+
+
+						
+
+
+						</div>
+
+						<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<select class="selection-2" name="sorting" onchange="filter_items('sortPrice','ranged')" id="sortPrice">
+								<option value="0">{% trans "Price" %}</option>
+								<option value="1">0-10</option>
+								<option value="2">10-20</option>
+								<option value="3">20-50</option>
+								<option value="4">50-100</option>
+
+
+							</select>
+
+							
+						</div>
+					</div>
+
+
+				</div>
+
+				<!-- Product -->
+				<div id="setfilterData">
+					<div id="myUL" class="row">
+					{% for item in object_list %}
+
+					<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 beeboo">
+						<!-- Block2 -->
+
+						<div class="block2">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative">
+
+								<img src="{{ item.image.url }}" alt="IMG-PRODUCT" style="height: 360px;">
+
+
+								<div class="block2-overlay trans-0-4">
+
+
+
+									
+										<!-- Button -->
+
+										{% if item.rQty > 0 %}
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+										<button onclick="addToCart('{{item.id}}')" style="mouse:pointer"
+											class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+											{% trans "Add To Cart" %}
+										</button>
+										</div>
+										{% else %}
+										<div class="">
+										<button style="margin-top:10rem"
+											class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 " disbaled
+											>
+											{% trans "Out of Stock" %}
+										</button>
+										</div>
+										{% endif %}
+
+									
+
+									<a href="/product_info/{{item.slug}}/"
+										class="flex-c-m size1 bo-rad-23  s-text1 trans-0-4" style="height:100%;">
+									</a>
+
+
+
+								</div>
+							</div>
+
+							<div id="{{item.title}}" class="block2-txt p-t-20 tetos  align-items-center justify-content-center">
+								<a id="{{item.title}}a" href="{{item.get_absolute_url}}"
+									class="block2-name dis-block s-text3 p-b-5 d-flex align-items-center justify-content-center">
+									{{item.title}}
+								</a>
+
+								<span class="block2-price m-text6 p-r-5 d-flex align-items-center justify-content-center">
+
+									{% if item.discount_price %}
+									<span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem;">
+										{{item.price|to_int}} RON
+									</span>
+
+									<span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem;">
+										{{item.discount_price|to_int}} RON
+									</span>
+									{% else %}
+									<span class="m-text17">
+										{{item.price|to_int}} RON
+									</span>
+									{% endif %}
+
+
+
+
+
+								</span>
+							</div>
+						</div>
+
+					</div>
+
+
+
+					<script>
+						function searchFunc() {
+							var input, filter, ul, li, a, i, txtValue;
+							input = document.getElementById("searchBarInput");
+							filter = input.value.toUpperCase();
+							ul = document.getElementById("myUL");
+							block = ul.getElementsByClassName("beeboo");
+							li = ul.getElementsByClassName(`tetos`);
+
+
+							for (i = 0; i < li.length; i++) {
+								a = li[i].getElementsByTagName("a")[0];
+								txtValue = a.textContent || a.innerText;
+								if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									block[i].style.display = "";
+								} else {
+									block[i].style.display = "none";
+
+								}
+							}
+
+							console.log('sdsdsd')
+						}
+					</script>
+
+
+
+
+					{% endfor %}
+
+
+
+
+
+				</div>
+</div>
+				<!-- ---- row end ------- -->
+
+				<br>
+				<!-- Pagination -->
+				{% if is_paginated %}
+				<div class="pagination flex-m flex-w p-t-26">
+					{% if page_obj.has_previous %}
+					<a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">{% trans "Previous" %}</span>
+					</a>
+					{% endif %}
+					<a href="?page={{ page_obj.number }}"
+						class="item-pagination flex-c-m trans-0-4 active-pagination">{{page_obj.number}}</a>
+
+
+					{% if page_obj.has_next %}
+					<a class="page-link" href="?page={{ page_obj.next_page_number}}" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">{% trans "Next" %}</span>
+					</a>
+					{% endif %}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+</section>
+
+
+<script>
+	function filter_items(sortby,other)
+	{
+			
+			var by=$("#"+sortby).val();
+			var othervar=$("#"+other).val();
+			data = {
+			"type": sortby,
+			'by':by,
+			'other':other,
+			'othervar':othervar
+			
+		}
+		
+		var token = getCookie()
+
+		$.ajax({
+			type: "POST",
+			url: "/en/filterItems",
+			dataType: "json",
+			headers: {
+				"X-Requested-With": "XMLHttpRequest",
+				"X-CSRFToken": token,
+			},
+			data: JSON.stringify(data),
+
+
+			success: function (data) {
+					console.log(data['status'])
+					if(data['status']=="ok")
+					{
+						$("#setfilterData").html(data["data"])
+					}
+				
+			}
+		})
+
+
+	}
+	function addToCart(id) {
+		data = {
+			"item_id": id,
+			
+			"size": "M",
+			"Q": 1
+		}
+		var token = getCookie()
+
+		$.ajax({
+			type: "POST",
+			url: "/en/addtocart",
+			dataType: "json",
+			headers: {
+				"X-Requested-With": "XMLHttpRequest",
+				"X-CSRFToken": token,
+			},
+			data: JSON.stringify(data),
+
+
+			success: function (data) {
+
+				document.getElementById("lblCartCount").innerHTML = data["count"];
+
+				if (data["msg"] == "Error") {
+					swal(data["item"], data["msg"], "error");
+				} else {
+					swal(data["item"], data["msg"], "success");
+				}
+
+
+
+				console.log(data);
+			}
+		})
+
+	}
+</script>
+{% endblock content %}

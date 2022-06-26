@@ -1,0 +1,1123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-19 23:28+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+
+#: core/forms.py:13
+msgid "1234 Main St"
+msgstr "1234 Main St"
+
+#: core/forms.py:17 templates/checkout.html:67
+msgid "Phone Number"
+msgstr "Număr de telefon"
+
+#: core/forms.py:20
+msgid "(select country)"
+msgstr "(selecteaza tara)"
+
+#: core/forms.py:26 templates/checkout.html:80
+msgid "Town"
+msgstr "Oraș"
+
+#: core/forms.py:42
+msgid "Promo code"
+msgstr "Cod Promo"
+
+#: core/views.py:41
+msgid "u have not added a billing address"
+msgstr "nu ați adăugat o adresă de facturare"
+
+#: core/views.py:80
+msgid "RateLimitError"
+msgstr "Eroare limită ratei"
+
+#: core/views.py:85
+msgid "Invalid parameters"
+msgstr "Parametri nevalidi"
+
+#: core/views.py:91
+msgid "Not Authentication"
+msgstr "Parametri nevalidi"
+
+#: core/views.py:96
+msgid "Network Error"
+msgstr "Eroare de rețea"
+
+#: core/views.py:102
+msgid "Something went wrong"
+msgstr "Ceva n-a mers bine"
+
+#: core/views.py:107
+msgid "Serious Error occurred"
+msgstr "A apărut o eroare gravă"
+
+#: core/views.py:126 core/views.py:182 core/views.py:227 core/views.py:394
+msgid "You do not have an active order"
+msgstr "Nu aveți o comandă activă"
+
+#: core/views.py:219
+msgid "Invalid payment option select"
+msgstr "Opțiune de plată selectată nevalidă"
+
+#: core/views.py:222
+msgid "Please Fill Required Fields Correctly!"
+msgstr "Vă rugăm să completați corect câmpurile obligatorii!"
+
+#: core/views.py:266
+msgid "Item qty was updated."
+msgstr "Cantitatea articolelor a fost actualizată."
+
+#: core/views.py:284 core/views.py:305
+msgid "Item was added to your cart."
+msgstr ""
+
+#: core/views.py:325
+msgid "Item was removed from your cart."
+msgstr "Articolul a fost adăugat în coș."
+
+#: core/views.py:329 core/views.py:362
+msgid "Item was not in your cart."
+msgstr "Articolul nu a fost în coșul dumneavoastră."
+
+#: core/views.py:333 core/views.py:366
+msgid "u don't have an active order."
+msgstr "nu aveți o comandă activă."
+
+#: core/views.py:358
+msgid "This item qty was updated."
+msgstr "Această cantitate de articole a fost actualizată."
+
+#: core/views.py:376
+msgid "This coupon does not exist"
+msgstr "Acest cupon nu există"
+
+#: core/views.py:390
+msgid "Successfully added coupon"
+msgstr "Cupon adăugat cu succes"
+
+#: core/views.py:425
+msgid "Your request was received"
+msgstr "Solicitarea dvs. a fost primită"
+
+#: core/views.py:429
+msgid "This order does not exist"
+msgstr "Această ordine nu există"
+
+#: templates/CONTACTEAZA_NE_temp.html:32
+msgid "Contact Form"
+msgstr "Formular de contact"
+
+#: templates/CONTACTEAZA_NE_temp.html:41 templates/cart.html:631
+msgid "Contact Us"
+msgstr "CONTACTEAZA-NE"
+
+#: templates/CONTACTEAZA_NE_temp.html:44
+msgid "Your message was sent, thank you!"
+msgstr "Mesajul tau a fost trimis, multumesc!"
+
+#: templates/CONTACTEAZA_NE_temp.html:50
+msgid "Full Name"
+msgstr "Numele complet"
+
+#: templates/CONTACTEAZA_NE_temp.html:56
+msgid "Email Address"
+msgstr "Adresa de e-mail"
+
+#: templates/CONTACTEAZA_NE_temp.html:62
+msgid "Subject"
+msgstr "Subiect"
+
+#: templates/CONTACTEAZA_NE_temp.html:68
+msgid "Message"
+msgstr "Mesaj"
+
+#: templates/CONTACTEAZA_NE_temp.html:94 templates/checkout.html:62
+msgid "Address"
+msgstr ""
+
+#: templates/CONTACTEAZA_NE_temp.html:104 templates/footer.html:120
+msgid "Phone"
+msgstr "Telefon"
+
+#: templates/CONTACTEAZA_NE_temp.html:114 templates/footer.html:121
+msgid "Email"
+msgstr "E-mail"
+
+#: templates/CONTACTEAZA_NE_temp.html:124
+msgid "Website"
+msgstr "Site-ul web"
+
+#: templates/Category_temp2.html:9 templates/cart.html:78
+#: templates/cart.html:343 templates/nav.html:69 templates/nav.html:244
+#: templates/product-detail.html:10
+msgid "Home"
+msgstr "Acasă"
+
+#: templates/Category_temp2.html:82 templates/product-detail.html:83
+msgid "Size"
+msgstr "Mărimea"
+
+#: templates/Category_temp2.html:87 templates/product-detail.html:88
+msgid "Choose the size"
+msgstr "Alege Marimea"
+
+#: templates/Category_temp2.html:98
+msgid "Nikname"
+msgstr "Nikname"
+
+#: templates/Category_temp2.html:108
+msgid "Number"
+msgstr "Număr"
+
+#: templates/Category_temp2.html:146 templates/product-detail.html:127
+msgid "SKU"
+msgstr "SKU"
+
+#: templates/Category_temp2.html:147 templates/cart.html:581
+#: templates/category.html:58 templates/product-detail.html:128
+#: templates/shop.html:57
+msgid "Categories"
+msgstr "Categorii"
+
+#: templates/Category_temp2.html:167 templates/product-detail.html:148
+msgid "Additional Information"
+msgstr "Informații suplimentare"
+
+#: templates/Category_temp2.html:181 templates/product-detail.html:162
+msgid "Reviews"
+msgstr "Recenzii"
+
+#: templates/account/account_inactive.html:5
+#: templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr "Cont inactiv"
+
+#: templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr "Acest cont este inactiv."
+
+#: templates/account/email.html:5
+msgid "Account"
+msgstr "Cont"
+
+#: templates/account/email.html:8
+msgid "E-mail Addresses"
+msgstr "Adrese de email"
+
+#: templates/account/email.html:10
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Următoarele adrese de e-mail sunt asociate contului dvs.:"
+
+#: templates/account/email.html:24
+msgid "Verified"
+msgstr "Verificat"
+
+#: templates/account/email.html:26
+msgid "Unverified"
+msgstr "Neverificat"
+
+#: templates/account/email.html:28
+msgid "Primary"
+msgstr "Primar"
+
+#: templates/account/email.html:34
+msgid "Make Primary"
+msgstr "Faceți principal"
+
+#: templates/account/email.html:35
+msgid "Re-send Verification"
+msgstr "Retrimite verificarea"
+
+#: templates/account/email.html:36 templates/socialaccount/connections.html:35
+msgid "Remove"
+msgstr "Elimina"
+
+#: templates/account/email.html:43
+msgid "Warning:"
+msgstr "Elimina"
+
+#: templates/account/email.html:43
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"În prezent, nu aveți nicio adresă de e-mail configurată. Chiar ar trebui să adaugi "
+"o adresă de e-mail astfel încât să puteți primi notificări, să vă resetați parola etc."
+
+#: templates/account/email.html:48
+msgid "Add E-mail Address"
+msgstr "Adăugați o adresă de e-mail"
+
+#: templates/account/email.html:53
+msgid "Add E-mail"
+msgstr "Adăugați e-mail"
+
+#: templates/account/email.html:62
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Chiar doriți să eliminați adresa de e-mail selectată?"
+
+#: templates/account/email/email_confirmation_message.txt:1
+#, python-format
+msgid ""
+"Hello from %(site_name)s!\n"
+"\n"
+"You're receiving this e-mail because user %(user_display)s has given yours "
+"as an e-mail address to connect their account.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s\n"
+msgstr ""
+"Salutari din %(site_name)s!\n"
+"\n"
+"Primiți acest e-mail deoarece utilizator %(user_display)s a dat-o pe a ta "
+"ca adresă de e-mail pentru a-și conecta contul.\n"
+"\n"
+"Pentru a confirma că acest lucru este corect, accesați %(activate_url)s\n"
+
+#: templates/account/email/email_confirmation_message.txt:7
+#, python-format
+msgid ""
+"Thank you from %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Multumesc de la %(site_name)s!\n"
+"%(site_domain)s"
+
+#: templates/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "Vă rugăm să confirmați adresa de e-mail"
+
+#: templates/account/email/password_reset_key_message.txt:1
+#, python-format
+msgid ""
+"Hello from %(site_name)s!\n"
+"\n"
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Salutari din %(site_name)s!\n"
+"\n"
+"Primiți acest e-mail deoarece dvs. sau altcineva ați solicitat un "
+"parola pentru contul dvs. de utilizator.\n"
+"Poate fi ignorat în siguranță dacă nu ați solicitat o resetare a parolei. Apasă pe "
+"linkul de mai jos pentru a vă reseta parola."
+
+#: templates/account/email/password_reset_key_message.txt:8
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "În cazul în care ați uitat, numele dvs. de utilizator este %(username)s."
+
+#: templates/account/email/password_reset_key_message.txt:10
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Vă mulțumim pentru utilizare %(site_name)s!\n"
+"%(site_domain)s"
+
+#: templates/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "E-mail pentru resetarea parolei"
+
+#: templates/account/email_confirm.html:6
+#: templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Confirmați adresa de e-mail"
+
+#: templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"Te rog confirma ca <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"adresa pentru utilizator %(user_display)s."
+
+#: templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr "A confirma"
+
+#: templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"Acest link de confirmare prin e-mail a expirat sau este invalid. Vă rog <a href="
+"\"%(email_url)s\">issue a new e-mail cerere de confirmare</a>."
+
+#: templates/account/login.html:7 templates/account/login.html:24
+#: templates/account/login.html:51
+msgid "Sign In"
+msgstr "Conectare"
+
+#: templates/account/login.html:29
+#, python-format
+msgid ""
+"Please log in with your account. Or, <a href=\"%(signup_url)s\">Register.</"
+"a>\n"
+msgstr ""
+"Vă rugăm să vă conectați cu contul dvs. Sau, <a href=\"%(signup_url)s\">Inregistreaza-te.</"
+"a>\n"
+
+#: templates/account/login.html:39
+#, python-format
+msgid ""
+"If you have not created an account yet, please\n"
+"<a href=\"%(signup_url)s\" class=\"text-primary\">Register</a> first."
+msgstr ""
+"Daca nu v-ati creat inca un cont va rugam\n"
+"<a href=\"%(signup_url)s\" class=\"text-primary\">Inregistreaza-te</a> first."
+
+
+#: templates/account/login.html:50
+msgid "I forgot my password"
+msgstr "Am uitat parola"
+
+#: templates/account/logout.html:17 templates/account/logout.html:29
+msgid "Sign Out"
+msgstr "Sign out"
+
+#: templates/account/logout.html:19
+msgid "Are you sure you want to log out of your account?"
+msgstr "Sigur doriți să vă deconectați de la contul dvs.?"
+
+#: templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr "Nu vă puteți elimina adresa de e-mail principală (%(email)s)."
+
+#: templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr "E-mail de confirmare trimis la %(email)s."
+
+#: templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "Ai confirmat %(email)s."
+
+#: templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr "Eliminați adresa de e-mail %(email)s."
+
+#: templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "S-a conectat cu succes ca %(name)s."
+
+#: templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr "Te-ai deconectat."
+
+#: templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "Parolă schimbată cu succes."
+
+#: templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr "Parola setată cu succes."
+
+#: templates/account/messages/primary_email_set.txt:2
+msgid "Primary e-mail address set."
+msgstr "Adresa de e-mail principală setată."
+
+#: templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary e-mail address must be verified."
+msgstr "Adresa dvs. de e-mail principală trebuie verificată."
+
+#: templates/account/password_change.html:8
+#: templates/account/password_change.html:16
+#: templates/account/password_change.html:21
+#: templates/account/password_reset_from_key.html:4
+#: templates/account/password_reset_from_key.html:12
+#: templates/account/password_reset_from_key.html:22
+#: templates/account/password_reset_from_key_done.html:4
+#: templates/account/password_reset_from_key_done.html:10
+msgid "Change Password"
+msgstr "Schimbaţi parola"
+
+#: templates/account/password_reset.html:6
+#: templates/account/password_reset_done.html:6
+#: templates/account/password_reset_done.html:13
+msgid "Password Reset"
+msgstr "Schimbaţi parola"
+
+#: templates/account/password_reset.html:21
+msgid ""
+"Forgot your password? Enter the email above, and we'll send you a password "
+"reset email."
+msgstr ""
+"Ti-ai uitat parola? Introdu e-mailul de mai sus și îți vom trimite o parolă"
+"resetează e-mailul."
+
+#: templates/account/password_reset.html:26
+msgid "Reset my password"
+msgstr "Reseteaza-mi parola"
+
+#: templates/account/password_reset.html:29
+msgid "Please contact us if you have problems resetting your password."
+msgstr "Vă rugăm să ne contactați dacă aveți probleme la resetarea parolei."
+
+#: templates/account/password_reset_done.html:19
+msgid ""
+"I sent you an email. Please contact us if you have not received the mail in "
+"a few minutes."
+msgstr ""
+"Ti-am trimis un email. Vă rugăm să ne contactați dacă nu ați primit e-mailul "
+"câteva minute."
+
+#: templates/account/password_reset_from_key.html:12
+msgid "Bad Token"
+msgstr "Jeton rău"
+
+#: templates/account/password_reset_from_key.html:16
+#, python-format
+msgid ""
+"The password reset link is invalid, probably because it has already been "
+"used. Please ask<a href=\"%(passwd_reset_url)s\">new password reset</a>."
+msgstr ""
+"Link-ul de resetare a parolei este invalid, probabil pentru că a fost deja "
+"folosit. Te rog intreaba<a href=\"%(passwd_reset_url)s\">resetarea parolei noi</a>."
+
+#: templates/account/password_reset_from_key.html:25
+#: templates/account/password_reset_from_key_done.html:11
+msgid "Your password has been changed."
+msgstr "Parola dvs. a fost schimbată."
+
+#: templates/account/password_set.html:8 templates/account/password_set.html:15
+#: templates/account/password_set.html:20
+msgid "Set Password"
+msgstr "Seteaza parola"
+
+#: templates/account/signup.html:6 templates/account/signup.html:22
+#: templates/account/signup.html:37 templates/nav.html:91
+#: templates/nav.html:265 templates/socialaccount/signup.html:8
+#: templates/socialaccount/signup.html:19
+msgid "Sign Up"
+msgstr "Inscrie-te"
+
+#: templates/account/signup.html:24
+#, python-format
+msgid ""
+"Already have an account? Then <a href=\"%(login_url)s\">Please Login</a>."
+msgstr ""
+"ai deja un cont? Apoi<a href=\"%(login_url)s\">Va rugam sa va logati</a>."
+
+#: templates/account/signup_closed.html:5
+#: templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "Inregistrare inchisa"
+
+#: templates/account/signup_closed.html:10
+msgid "We apologize but the account registration is currently unavailable."
+msgstr "Ne cerem scuze, dar înregistrarea contului este momentan indisponibilă."
+
+#: templates/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr "Notă"
+
+#: templates/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "sunteți deja autentificat ca %(user_display)s."
+
+#: templates/account/verification_sent.html:5
+#: templates/account/verified_email_required.html:5
+#: templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "Verifică-ți adresa de email"
+
+#: templates/account/verification_sent.html:8
+msgid "Check your email address"
+msgstr "Verificați adresa dvs. de e-mail"
+
+#: templates/account/verification_sent.html:10
+msgid ""
+"I sent you a verification email. Follow the link to complete the "
+"registration. Please contact us if you did not receive the link after a few "
+"minutes."
+msgstr ""
+"Ți-am trimis un e-mail de verificare. Urmați linkul pentru a finaliza "
+"înregistrare. Vă rugăm să ne contactați dacă nu ați primit linkul după câteva"
+"minute."
+
+#: templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that you are who you claim to "
+"be. For this purpose, we require that you verify ownership of your e-mail "
+"address. "
+msgstr ""
+"Această parte a site-ului ne solicită să verificăm că sunteți cine pretindeți "
+"fi. În acest scop, vă solicităm să verificați dreptul de proprietate asupra e-mailului dvs "
+"abordare. "
+
+#: templates/account/verified_email_required.html:14
+msgid ""
+"We have sent an e-mail to you for verification. Please click on the link "
+"inside this e-mail. Please contact us if you do not receive it within a few "
+"minutes."
+msgstr ""
+"V-am trimis un e-mail pentru verificare. Vă rugăm să faceți clic pe link "
+"în interiorul acestui e-mail. Vă rugăm să ne contactați dacă nu îl primiți în câteva minute "
+"minute."
+
+#: templates/account/verified_email_required.html:16
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>Notă:</strong> inca poti <a href=\"%(email_url)s\">schimba-ti "
+"Adresa de e-mail</a>."
+
+#: templates/cart.html:6 templates/nav.html:81
+msgid "Basket"
+msgstr "Cos"
+
+#: templates/cart.html:50
+msgid "Free shipping for standard orders over"
+msgstr ""
+
+#: templates/cart.html:80 templates/cart.html:81 templates/cart.html:82
+#: templates/cart.html:345 templates/cart.html:346 templates/cart.html:347
+msgid "Homepage"
+msgstr "Livrare gratuită pentru comenzile standard peste"
+
+#: templates/cart.html:87 templates/cart.html:353 templates/header.html:4
+#: templates/nav.html:248
+msgid "Shop"
+msgstr "Magazin"
+
+#: templates/cart.html:91 templates/cart.html:357
+msgid "Sale"
+msgstr "Vânzare"
+
+#: templates/cart.html:95 templates/cart.html:361
+msgid "Features"
+msgstr "Caracteristici"
+
+#: templates/cart.html:103 templates/cart.html:369
+msgid "About"
+msgstr "Despre"
+
+#: templates/cart.html:107 templates/cart.html:373
+msgid "Contact"
+msgstr "a lua legatura"
+
+#: templates/cart.html:135 templates/cart.html:233 templates/nav.html:140
+msgid "White Shirt With Pleat Detail Back"
+msgstr "Cămașă Albă Cu Detaliu Pliuri La Spate"
+
+#: templates/cart.html:151 templates/cart.html:249 templates/nav.html:156
+msgid "Converse All Star Hi Black Canvas"
+msgstr "Converse All Star Hi Black Canvas"
+
+#: templates/cart.html:167 templates/cart.html:265 templates/nav.html:172
+msgid "Nixon Porter Leather Watch In Tan"
+msgstr "Ceas din piele Nixon Porter, maro"
+
+#: templates/cart.html:178 templates/cart.html:399 templates/cart.html:536
+#: templates/nav.html:183 templates/order_snippet.html:65
+msgid "Total"
+msgstr "Total"
+
+#: templates/cart.html:185 templates/cart.html:283 templates/nav.html:190
+msgid "View Cart"
+msgstr "Vizualizare coș"
+
+#: templates/cart.html:192 templates/cart.html:290 templates/nav.html:197
+msgid "Check Out"
+msgstr "Verifică"
+
+#: templates/cart.html:313 templates/nav.html:219
+msgid "Free shipping for standard order over"
+msgstr "Livrare gratuită pentru comanda standard peste"
+
+#: templates/cart.html:396
+msgid "Product"
+msgstr "Produs"
+
+#: templates/cart.html:397 templates/category.html:104
+#: templates/order_summary.html:16 templates/shop.html:86
+msgid "Price"
+msgstr "Preț"
+
+#: templates/cart.html:398
+msgid "Quantity"
+msgstr "Cantitate"
+
+#: templates/cart.html:408
+msgid "Men Tshirt"
+msgstr "Tricou pentru bărbați"
+
+#: templates/cart.html:432
+msgid "Mug Adventure"
+msgstr "Mug Adventure"
+
+#: templates/cart.html:462
+msgid "Apply coupon"
+msgstr "Aplicați cuponul"
+
+#: templates/cart.html:470
+msgid "Update Cart"
+msgstr "Actualizați coșul"
+
+#: templates/cart.html:478
+msgid "Cart Totals"
+msgstr "Totalurile coșului"
+
+#: templates/cart.html:484
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: templates/cart.html:495 templates/cart.html:663
+msgid "Shipping"
+msgstr "Transport"
+
+#: templates/cart.html:500
+msgid ""
+"There are no shipping methods available. Please double check your address, "
+"or contact us if you need any help."
+msgstr ""
+"Nu există metode de expediere disponibile. Vă rugăm să vă verificați adresa, "
+"sau contactați-ne dacă aveți nevoie de ajutor."
+
+#: templates/cart.html:504
+msgid "Calculate Shipping"
+msgstr "calculeaza livrarea"
+
+#: templates/cart.html:509
+msgid "Select a country..."
+msgstr "Selecteaza o tara..."
+
+#: templates/cart.html:527
+msgid "Update Totals"
+msgstr "Actualizați totalurile"
+
+#: templates/cart.html:547
+msgid "Proceed to Checkout"
+msgstr "Finalizează cumpărăturile"
+
+#: templates/cart.html:561
+msgid "GET IN TOUCH"
+msgstr "INTRAȚI ÎN LEGĂTURĂ"
+
+#: templates/cart.html:566
+msgid ""
+"Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, "
+"NY 10018 or call us on (+1) 96 716 6879"
+msgstr ""
+"Alte intrebari? Anunțați-ne în magazin de la etajul 8, 379 Hudson St, New York, "
+"NY 10018 sau suna-ne (+1) 96 716 6879"
+
+#: templates/cart.html:587
+msgid "Men"
+msgstr "Bărbați"
+
+#: templates/cart.html:593
+msgid "Women"
+msgstr "femei"
+
+#: templates/cart.html:599
+msgid "Dresses"
+msgstr "Rochii"
+
+#: templates/cart.html:605
+msgid "Sunglasses"
+msgstr "Ochelari de soare"
+
+#: templates/cart.html:613
+msgid "Links"
+msgstr "Legături"
+
+#: templates/cart.html:619
+msgid "Search"
+msgstr "Căutare"
+
+#: templates/cart.html:625
+msgid "About Us"
+msgstr "Despre noi"
+
+#: templates/cart.html:637 templates/cart.html:657
+msgid "Returns"
+msgstr "Se intoarce"
+
+#: templates/cart.html:645
+msgid "Help"
+msgstr "Ajutor"
+
+#: templates/cart.html:651
+msgid "Track Order"
+msgstr "Urmărește comanda"
+
+#: templates/cart.html:669
+msgid "FAQs"
+msgstr "Întrebări frecvente"
+
+#: templates/cart.html:677 templates/footer.html:55
+msgid "Newsletter"
+msgstr "Buletin informativ"
+
+#: templates/cart.html:689 templates/footer.html:71 templates/footer.html:101
+msgid "Subscribe"
+msgstr "Abonati-va"
+
+#: templates/cart.html:719
+msgid "Copyright © 2018 All rights reserved. | This template is made with"
+msgstr "Copyright © 2018 Toate drepturile rezervate. | Acest șablon este realizat cu"
+
+#: templates/cart.html:719
+msgid "by"
+msgstr "de"
+
+#: templates/cart.html:719
+msgid "Colorlib"
+msgstr "Colorlib"
+
+#: templates/category.html:65 templates/shop.html:64
+msgid "All"
+msgstr "Toate"
+
+#: templates/category.html:86
+msgid "Default Sort"
+msgstr "Sortare implicită"
+
+#: templates/category.html:87
+msgid "Price: small to large"
+msgstr "Pret: mic la mare"
+
+#: templates/category.html:88
+msgid "Price: large to small"
+msgstr "Pret: mare la mic"
+
+#: templates/category.html:175 templates/index.html:123 templates/shop.html:157
+msgid "Add To Cart"
+msgstr "Adaugă în coș"
+msgid "Out of Stock"
+msgstr "Articol Epuizat"
+
+#: templates/category.html:248 templates/shop.html:230
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/category.html:257 templates/shop.html:239
+msgid "Next"
+msgstr "Următorul"
+
+#: templates/checkout.html:49 templates/payment.html:135
+msgid "Payment Form"
+msgstr "Formular de plată"
+
+#: templates/checkout.html:58
+msgid "Billing Address"
+msgstr "Adresa de facturare"
+
+#: templates/checkout.html:67
+msgid "(Optional)"
+msgstr "(Opțional)"
+
+#: templates/checkout.html:73
+msgid "Country"
+msgstr "Țară"
+
+#: templates/checkout.html:76
+msgid "Please select a valid country."
+msgstr "Vă rugăm să selectați o țară validă."
+
+#: templates/checkout.html:83
+msgid "Please select a valid city."
+msgstr "Vă rugăm să selectați un oraș valid."
+
+#: templates/checkout.html:87
+msgid "Postal Code"
+msgstr "cod postal"
+
+#: templates/checkout.html:90
+msgid "Postal code required."
+msgstr "Cod poștal necesar."
+
+#: templates/checkout.html:98
+msgid "Delivery address is the same as Billing address,"
+msgstr "Adresa de livrare este aceeași cu adresa de facturare,"
+
+#: templates/checkout.html:103
+msgid "Save this information for the date"
+msgstr "Salvați aceste informații pentru dată"
+
+#: templates/checkout.html:107
+msgid "Payment Methods"
+msgstr "Metode de plata"
+
+#: templates/checkout.html:119
+msgid "Continue to Pay"
+msgstr "Continuați să plătiți"
+
+#: templates/footer.html:59
+#, python-format
+msgid "Everyone that subscribe gets 10%% off"
+msgstr "Toți cei care se abonează primesc 10%% reducere"
+
+#: templates/footer.html:93
+msgid "ADMIN LOGIN"
+msgstr "LOGIN ADMIN"
+
+#: templates/footer.html:97
+msgid "COMPANY"
+msgstr "COMPANIE"
+
+#: templates/footer.html:98
+msgid "ABOUT US"
+msgstr "DESPRE NOI"
+
+#: templates/footer.html:99
+msgid "HOW TO ORDER?"
+msgstr "CUM SE COMANDĂ?"
+
+#: templates/footer.html:100
+msgid "SIZE GUIDE"
+msgstr "GHID MARIMI"
+
+#: templates/footer.html:104
+msgid "HELP"
+msgstr "AJUTOR"
+
+#: templates/footer.html:105
+msgid "RETURN POLICY"
+msgstr "POLITICA DE RETURNARE"
+
+#: templates/footer.html:106
+msgid "TERMS AND CONDITIONS"
+msgstr "TERMENI SI CONDITII"
+
+#: templates/footer.html:107
+msgid "PRIVACY POLICY"
+msgstr "POLITICA DE CONFIDENȚIALITATE"
+
+#: templates/footer.html:108
+msgid "CONTACT US"
+msgstr "CONTACTAŢI-NE"
+
+#: templates/index.html:92
+msgid "T-shirts"
+msgstr "tricouri"
+
+#: templates/index.html:234 templates/index.html:269 templates/index.html:294
+msgid "Purchase Now"
+msgstr "Cumpara acum"
+
+#: templates/index.html:330
+msgid "Free Delivery"
+msgstr "Livrare gratuita"
+
+#: templates/index.html:334
+msgid "Click here for more information"
+msgstr "Faceți clic pe AICI pentru mai multe informații"
+
+#: templates/index.html:340
+msgid "30 Days Free Return"
+msgstr "30 de zile Retur gratuit"
+
+#: templates/index.html:344
+msgid "Return the product within 30 days to receive a refund"
+msgstr "Returnați produsul în termen de 30 de zile pentru a primi rambursarea"
+
+#: templates/index.html:350
+msgid "The store is open"
+msgstr "Magazinul este deschis"
+
+#: templates/index.html:354
+msgid "The store is open from Monday to Sunday 24/7"
+msgstr "Magazinul este deschis de luni până duminică 24/7"
+
+#: templates/nav.html:45
+msgid "Free delivery for orders that exceed"
+msgstr "Livrare gratuita pentru comenzile care depasesc"
+
+#: templates/nav.html:74
+msgid "All Products"
+msgstr "Toate produsele"
+
+#: templates/nav.html:84 templates/nav.html:258
+msgid "Logout"
+msgstr "Deconectare"
+
+#: templates/nav.html:88 templates/nav.html:90 templates/nav.html:262
+#: templates/nav.html:264
+msgid "Login"
+msgstr "Autentificare"
+
+#: templates/nav.html:255
+msgid "Cart"
+msgstr "Cos"
+
+#: templates/openid/login.html:9
+msgid "OpenID Sign In"
+msgstr "Conectare OpenID"
+
+#: templates/order_snippet.html:44 templates/order_summary.html:9
+msgid "Your Cart"
+msgstr "Coșul dvs"
+
+#: templates/order_snippet.html:52 templates/order_summary.html:17
+msgid "Amount"
+msgstr "Cantitate"
+
+#: templates/order_snippet.html:59
+msgid "Promo Code"
+msgstr "Cod promoțional"
+
+#: templates/order_summary.html:14
+msgid "Picture"
+msgstr "Imagine"
+
+#: templates/order_summary.html:15
+msgid "Product Name"
+msgstr "numele produsului"
+
+#: templates/order_summary.html:18
+msgid "Total Price"
+msgstr "Pretul total"
+
+#: templates/order_summary.html:38
+msgid "Saving"
+msgstr "Economisire"
+
+#: templates/order_summary.html:49
+msgid "Your cart is empty"
+msgstr "Coșul tău este gol"
+
+#: templates/order_summary.html:55
+msgid "Coupon"
+msgstr "Cupon"
+
+#: templates/order_summary.html:61
+msgid "Total price"
+msgstr "Pretul total"
+
+#: templates/order_summary.html:66 templates/payment.html:154
+#: templates/payment.html:170
+msgid "Checkout"
+msgstr "Verifică"
+
+#: templates/order_summary.html:67
+msgid "Continue Shopping"
+msgstr "Continua cumparaturile"
+
+#: templates/payment.html:142
+msgid "Use the default card"
+msgstr "Utilizați cardul implicit"
+
+#: templates/payment.html:165
+msgid "Credit or debit card"
+msgstr "Card de credit sau debit"
+
+#: templates/payment.html:175
+msgid "Save for future payments"
+msgstr "Economisiți pentru plăți viitoare"
+
+#: templates/product-detail.html:134
+msgid "Description"
+msgstr "Descriere"
+
+#: templates/request_refund.html:12
+msgid "Request Refund"
+msgstr "Cerere de rambursare"
+
+#: templates/request_refund.html:16
+msgid "Submit"
+msgstr "Trimite"
+
+#: templates/socialaccount/authentication_error.html:5
+#: templates/socialaccount/authentication_error.html:8
+msgid "Social Network Login Failure"
+msgstr "Eroare de conectare la rețeaua socială"
+
+#: templates/socialaccount/authentication_error.html:10
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr ""
+"A apărut o eroare la încercarea de a vă conecta prin contul dvs. de rețea socială."
+
+#: templates/socialaccount/connections.html:5
+#: templates/socialaccount/connections.html:8
+msgid "Account Connections"
+msgstr "Conexiuni de cont"
+
+#: templates/socialaccount/connections.html:11
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+"Vă puteți conecta la contul dvs. utilizând oricare dintre următoarele terțe părți "
+"conturi:"
+
+#: templates/socialaccount/connections.html:43
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+"În prezent, nu aveți conturi de rețea socială conectate la acest cont."
+
+#: templates/socialaccount/connections.html:46
+msgid "Add a 3rd Party Account"
+msgstr "Adăugați un cont terță parte"
+
+#: templates/socialaccount/login_cancelled.html:5
+#: templates/socialaccount/login_cancelled.html:9
+msgid "Login Cancelled"
+msgstr "Conectare anulată"
+
+#: templates/socialaccount/login_cancelled.html:13
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
+"\">sign in</a>."
+msgstr ""
+"Ați decis să anulați autentificarea pe site-ul nostru folosind una dintre cele existente "
+"conturi. Dacă aceasta a fost o greșeală, vă rugăm să continuați <a href=\"%(login_url)s"
+"\">conectare</a>."
+
+#: templates/socialaccount/messages/account_connected.txt:2
+msgid "The social account has been connected."
+msgstr ""
+
+#: templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The social account is already connected to a different account."
+msgstr "Contul social este deja conectat la un alt cont."
+
+#: templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The social account has been disconnected."
+msgstr "Contul social a fost deconectat."
+
+#: templates/socialaccount/signup.html:5
+msgid "Signup"
+msgstr "Inscrie-te"
+
+#: templates/socialaccount/signup.html:10
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+"Sunteți pe cale să vă folosiți %(provider_name)s cont la care să vă autentificați\n"
+"%(site_name)s. Ca pas final, vă rugăm să completați următorul formular:"

@@ -1,0 +1,89 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load i18n %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>{% trans "Your Cart" %}</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">{% trans "Picture" %}</th>
+            <th scope="col">{% trans "Product Name" %}</th>
+        
+            <th scope="col">{% trans "Size" %}</th>
+            <th scope="col">{% trans "Price" %}</th>
+            <th scope="col">{% trans "Amount" %}</th>
+            <th scope="col">{% trans "Total Price" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order_item in object.items.all %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>
+			<img src="{{ order_item.item.image.url }}" style="width: 130px;"> 
+            </td>
+            <td>{{ order_item.item.title }}</td>
+            
+            <td>{{ order_item.size }}</td>
+            
+            <td>
+            	<a href="{% url 'core:remove-single-item-from-cart' order_item.id %}"><i class="fas fa-minus mr-3"></i></a>
+            	{{ order_item.quantity }}
+            	<a href="{% url 'core:add-to-cart' order_item.id %}"><i class="fas fa-plus ml-3"></i></a>
+            </td>
+            <td>
+              {% if order_item.item.discount_price %} RON
+               {{ order_item.get_total_discount_item_price}}
+                  <span class="badge badge-primary" style="color:black">  {% trans "Saving" %}  {{ order_item.get_amount_saved }} RON</span>
+              {% else %}
+               {{ order_item.get_total_item_price}} RON
+              {% endif %}
+              <a style="color: red" href="{% url 'core:remove-from-cart' order_item.id %}">
+              	<i class="fas fa-trash float-right"></i>
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+			<td colspan="5">{% trans "Your cart is empty" %}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+        {% if object.coupon %}
+        <tr>
+          <td colspan="5"><b>{% trans "Coupon" %} : </b></td>
+          <td>- ${{ object.coupon.amount }}</td>
+        </tr>
+        {% endif%}
+         <tr>
+        	<td colspan="5"><b>{% trans "Sub Total" %} : </b></td>
+        	<td><b>{{ object.get_total }} RON </b></td>
+        </tr>
+        <tr>
+        	<td colspan="5"><b>{% trans "Shipping Fee" %} : </b></td>
+        	<td><b>{{ object.Shippingfee }} RON</b></td>
+        </tr>
+        
+        <tr>
+        	<td colspan="5"><b>{% trans "Total price" %} : </b></td>
+        	<td><b>{{ object.grandTotal }} RON</b></td>
+        </tr>
+        <tr>
+        	<td colspan="5">
+        		<a href="/checkout" class="btn btn-warning float-right ml-2">{% trans "Checkout" %}</a>
+        		<a href="/" class="btn btn-primary float-right">{% trans "Continue Shopping" %}</a>
+
+        	</td>
+        </tr>
+       
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

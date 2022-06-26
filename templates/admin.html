@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    body {
+        margin-top: 20px;
+        background-color: #f2f6fc;
+        color: #69707a;
+    }
+
+    .img-account-profile {
+        height: 10rem;
+    }
+
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+
+    .card {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    }
+
+    .card .card-header {
+        font-weight: 500;
+    }
+
+    .card-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+
+    .card-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+
+    .form-control,
+    .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 1.125rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+    }
+
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .fa-2x {
+        font-size: 2em;
+    }
+
+    .table-billing-history th,
+    .table-billing-history td {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.375rem;
+        padding-right: 1.375rem;
+    }
+
+    .table> :not(caption)>*>*,
+    .dataTable-table> :not(caption)>*>* {
+        padding: 0.75rem 0.75rem;
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+    }
+
+    .border-start-primary {
+        border-left-color: #0061f2 !important;
+    }
+
+    .border-start-secondary {
+        border-left-color: #6900c7 !important;
+    }
+
+    .border-start-success {
+        border-left-color: #00ac69 !important;
+    }
+
+    .border-start-lg {
+        border-left-width: 0.25rem !important;
+    }
+
+    .h-100 {
+        height: 100% !important;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<div class="container-xl px-4 mt-2">
+
+    <div class="row">
+        <div class="col-lg-3 mb-3">
+            <!-- Billing card 1-->
+            <div class="card h-100 border-start-lg border-start-primary">
+                <div class="card-body">
+                    <div class="small text-muted">Orders Need To Be Delivered/New Orders</div>
+                    <div class="h3">{{being_delivered}}</div>
+                    <a class="text-arrow-icon small" href="#!">
+
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-3">
+            <!-- Billing card 2-->
+            <div class="card h-100 border-start-lg border-start-secondary">
+                <div class="card-body">
+                    <div class="small text-muted">Total Income</div>
+                    <div class="h3"></div>
+                    <a class="text-arrow-icon small text-secondary" href="#!">
+                        {{sum}} RON
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-3">
+            <!-- Billing card 3-->
+            <div class="card h-100 border-start-lg border-start-success">
+                <div class="card-body">
+                    <div class="small text-muted">No of Delivered Orders</div>
+                    <div class="h3 d-flex align-items-center"></div>
+                    <a class="text-arrow-icon small text-success" href="#!">
+                        {{delivered}}
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-3">
+            <!-- Billing card 3-->
+            <div class="card h-100 border-start-lg border-start-success">
+                <div class="card-body">
+                    <div class="small text-muted">No of Request for Refunds</div>
+                    <div class="h3 d-flex align-items-center"></div>
+                    <a class="text-arrow-icon small text-success" href="#!">
+                        {{refund_requested}}
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+        <div class="card card-header-actions mb-4">
+        <div class="card-header">
+            Orders
+            <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#exampleModal">Sort Orders</button>
+        </div>
+        
+        <div class="card-body p-0">
+
+            <div class="table-responsive table-billing-history">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="border-gray-200" scope="col">Order No</th>
+                            <th class="border-gray-200" scope="col">Date</th>
+                            <th class="border-gray-200" scope="col">Amount</th>
+
+                            <th class="border-gray-200" scope="col">Item</th>
+                            <th class="border-gray-200" scope="col">Size</th>
+
+                            <th class="border-gray-200" scope="col">QTY</th>
+                            <th class="border-gray-200" scope="col">Item Total Price</th>
+                            <th class="border-gray-200" scope="col">Address</th>
+                            <th class="border-gray-200" scope="col">Name</th>
+                            <th class="border-gray-200" scope="col">Shipping</th>
+                            <th class="border-gray-200" scope="col">Delivery Status</th>
+                            <th class="border-gray-200" scope="col">Refund</th>
+                            <th class="border-gray-200" scope="col">Status</th>
+                           
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for order in orders %}
+                        {% for orderItem in order.items.all %}
+                        <tr>
+                            <td>#{{order.id}}</td>
+                            <td>{{order.ordered_date}}</td>
+                            <td>{{order.grandTotal}} <small>RON</small></td>
+                            <td>{{orderItem.item}}</td>
+                            <td>{{orderItem.size}}</td>
+                            <td>{{orderItem.quantity}}</td>
+
+                            <td>{{orderItem.get_final_price}} <small>RON</small></td>
+                            <td>{{order.billing_address.apartment_address}}</td>
+                            <td>{{order.billing_address.name}}</td>
+                            
+                            {% if  order.Shippingfee or order.Shippingfee != 0 %}
+                            <td>{{order.Shippingfee}} <small>RON</small> </td>
+                            {% else %}
+                            <td>Free Shipping</td>
+                            {% endif %}
+                                {% if  order.being_delivered %}
+                            <td>delivered</td>
+                            {% elif order.being_delivered and order.received%}
+                             <td>received</td>
+                            {% else %}
+                            <td>being delivered </td>
+                            {% endif %}
+                                
+                            
+                                {% if order.refund_requested and order.refund_granted == False%}
+
+                                <td><span class="badge bg-info">Requested</span></td>
+                            
+                            {% elif order.refund_granted%}
+                            <td><span class="badge bg-success">Refund Request Accepted</span></td>
+                            {% else %}
+                            <td><span class="badge bg-light text-dark">Not Apply for Refund</span></td>
+                            
+                            {% endif %}
+                            {% if order.ordered %}
+                            
+                                 <td><span class="badge bg-light text-dark">Ordered</span></td>
+                            {% endif %}
+
+
+                        </tr>
+                        {% endfor %}
+
+
+                        {% endfor %}
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="getOrders" method="post">
+        {% csrf_token %}
+      <div class="modal-body">
+        
+            <label for="">Sort By</label>
+            <select name="sortby" class="selectpicker" id="">
+                
+                <option value="id" selected>ID</option>
+                <option value="ordered_date">Date</option>
+                <option value="all">Show all Orders</option>
+            </select>
+            <br>
+            
+                <label for="from">From</label>
+                <input type="date" name="from" class="form-control" id="">
+                <label for="">To</label>
+                <input type="date" name="to" class="form-control" id="">
+            
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Search</button>
+            
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+    jQuery.noConflict();
+
+    function closeModal() {
+        $('#exampleModal').modal('hide');
+
+
+    }
+
+    function showmodel(id) {
+
+        $('#exampleModal').modal('show')
+
+        $("#orderid").val(id);
+
+
+
+
+    }
+</script>
+{% endblock content %}

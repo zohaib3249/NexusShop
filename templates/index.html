@@ -1,0 +1,531 @@
+{% extends 'base.html' %} {% load static %} {% load i18n %} {% load category_template_tags %}{% load cart_template_tags %} {% load slide_template_tags %} {% block content %}
+<style>
+    /*[ Block2 ]
+///////////////////////////////////////////////////////////
+*/
+    
+    .block2-labelpromotion::before,
+    .block2-labelsale::before,
+    .block2-labelnew::before {
+        z-index: 100;
+        font-family: Montserrat-Regular;
+        font-size: 12px;
+        color: white;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 22px;
+        border-radius: 11px;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+    
+    .block2-labelsale::before {
+        background-color: white;
+        color: #000;
+        content: 'Sale';
+    }
+    
+    .block2-labelnew::before {
+        background-color: #007bff;
+        content: 'New';
+    }
+    
+    .block2-labelpromotion::before {
+        background-color: #000;
+        content: 'Promotion';
+        width: 70px;
+    }
+    
+    .btn-dark {
+        color: #fff;
+        background-color: #000;
+        border-color: #000;
+    }
+    
+    .btn-outline-dark {
+        color: #000;
+        border-color: #000;
+    }
+    
+</style>
+
+<!-- Slide1 -->
+<section class="slide1">
+    <div class="wrap-slick1">
+        <div class="slick1">
+
+            {% slides %}
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- New Product -->
+<style>
+    .newproduct {
+        margin-bottom: 2px;
+        padding-bottom: 2px;
+    }
+</style>
+<section class="newproduct bgwhite p-t-45 p-b-105">
+    <div class="container">
+        <div class="sec-title p-b-60">
+            <h3 class="m-text5 t-center">
+                {% trans "T-shirts" %}
+            </h3>
+        </div>
+
+
+
+
+        <!--Carousel Wrapper-->
+
+
+        <div id="multi-item-example" class="carousel slide" data-ride="carousel">
+
+           
+                
+            <a class="arrow-slick2 prev-slick2" href="#multi-item-example" data-slide="prev" ><i class="fa  fa-angle-left"   aria-hidden="true"></i></a>
+
+            <a class="arrow-slick2 next-slick2" href="#multi-item-example" data-slide="next"><i class="fa  fa-angle-right" aria-hidden="true"></i></a>
+
+                              
+         
+            <!--/.Controls-->
+
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                {% for item in object_list|slice:"1:" %}
+                <li data-target="#multi-item-example" data-slide-to="{{foorloop.counter}}"></li>
+
+                {%endfor%}
+
+
+            </ol>
+            <!--/.Indicators-->
+
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+
+                <!--First slide-->
+                <div class="carousel-item active">
+
+                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50" style="float:left">
+                        <!-- Block2 -->
+
+                        <div class="block2">
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+                                <img src="{{ object_list.0.image.url }}" alt="IMG-PRODUCT" style="height: 360px;">
+
+
+                                <div class="block2-overlay trans-0-4">
+
+
+
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <!-- Button -->
+                                        {% if object_list.0.rQty > 0 %}
+                                        <button onclick="addToCart('{{object_list.0.id}}')" style="mouse:pointer" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+													{% trans "Add To Cart" %}
+												</button> {% else %}
+                                        <button style="mouse:pointer" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" disbaled style="color:green">
+													{% trans "Item Out of Stock" %}
+												</button> {% endif %}
+
+
+                                    </div>
+
+                                    <a href="/product/{{object_list.0.slug}}/" class="flex-c-m size1 bo-rad-23  s-text1 trans-0-4" style="height:100%;">
+
+                                    </a>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="block2-txt p-t-20">
+                                <a href="{{object_list.0.get_absolute_url}}" class="block2-name dis-block s-text3 p-b-5 d-flex align-items-center justify-content-center">
+											{{object_list.0.title}}
+										</a>
+
+                                 <span class="block2-price m-text6 p-r-5 d-flex align-items-center justify-content-center">
+
+                                        {% if object_list.0.discount_price %}
+                                        <span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem;">
+                                            {{object_list.0.price|to_int}} RON
+                                        </span>
+
+                                        <span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem;">
+                                            {{object_list.0.discount_price|to_int}} RON
+                                        </span>
+                                        {% else %}
+                                        <span class="m-text17">
+                                            {{object_list.0.price|to_int}} RON
+                                        </span>
+                                        {% endif %}
+
+
+
+								    </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% for item in object_list|slice:"1:" %}
+                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50" style="float:left">
+                        <!-- Block2 -->
+
+                        <div class="block2">
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+                                <img src="{{ item.image.url }}" alt="IMG-PRODUCT" style="height: 360px;">
+
+
+                                <div class="block2-overlay trans-0-4">
+
+
+
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <!-- Button -->
+                                        {% if item.rQty > 0 %}
+                                        <button onclick="addToCart('{{item.id}}')" style="mouse:pointer" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+													{% trans "Add To Cart" %}
+												</button> {% else %}
+                                        <button style="poi:pointer" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" disbaled style="color:green">
+													{% trans "Item Out of Stock" %}
+												</button> {% endif %}
+
+
+                                    </div>
+
+                                    <a href="/product/{{item.slug}}/" class="flex-c-m size1 bo-rad-23  s-text1 trans-0-4" style="height:100%;">
+
+                                    </a>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="block2-txt p-t-20">
+                                <a href="{{item.get_absolute_url}}" class="block2-name dis-block s-text3 p-b-5 d-flex align-items-center justify-content-center">
+											{{item.title}}
+										</a>
+
+                                	<span class="block2-price m-text6 p-r-5 d-flex align-items-center justify-content-center">
+
+                                        {% if item.discount_price %}
+                                        <span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem;">
+                                            {{item.price|to_int}} RON
+                                        </span>
+
+                                        <span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem;">
+                                            {{item.discount_price|to_int}} RON
+                                        </span>
+                                        {% else %}
+                                        <span class="m-text17">
+                                            {{item.price|to_int}} RON
+                                        </span>
+                                        {% endif %}
+
+
+
+
+
+								    </span>
+                               
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% if forloop.counter|divisibleby:2 and forloop.counter > 0 and not forloop.last %}
+                </div>
+                <div class="carousel-item">
+                    {% endif%} {%endfor %}
+
+                
+
+
+
+
+
+                </div>
+                <!--/.Slides-->
+
+            </div>
+            <!--/.Carousel Wrapper-->
+
+
+
+
+
+        </div>
+       
+      
+
+
+</section>
+
+<!-- ------------------Banner2  start ------------------------>
+<style>
+    .banner2 {
+        background-color: #fff;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .ban_img {
+        height: 680px;
+        width: 100%;
+    }
+    
+    .ban5_img {
+        height: 580px;
+        width: 100%;
+    }
+    
+    .btn-light {
+        color: #000;
+        background-color: #fff;
+        border-color: #fff;
+        border-radius: 20px;
+    }
+    
+    .wrap-btn-slide1 a:hover {
+        background-color: whitesmoke;
+        color: #000 !important;
+        opacity: 0.7;
+    }
+</style>
+<section class="banner2 bg5 p-t-55 p-b-55">
+
+
+
+
+
+    </div>
+    </div>
+</section>
+<!-- ------------------Banner2  start ------------------------>
+
+<!-- ------------------Banner4  start ------------------------>
+<!-- Slide1 -->
+
+<style>
+    .slide1 button:hover {
+        background-color: black !important;
+        color: white;
+    }
+</style>
+<br><br>
+<section class="slide1">
+
+
+    <div class="wrap-slick2">
+        <div class="slick1">
+
+
+
+
+
+            <div class="item-slick1 item2-slick1" style="background-image: url('../media_root/kr_slide_add_2.jpg');">
+                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                    <span class="caption1-slide1 m-text1 t-center   m-b-15" data-appear="rollIn">
+
+					</span>
+                    <h2 class="caption2-slide1 xl-text1 t-center   m-b-37" data-appear="lightSpeedIn" style="color:white">
+                        #BENEXUS
+                    </h2>
+                    <div class="wrap-btn-slide1 w-size1 " data-appear="slideInUp">
+
+                        <a href="category/1" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							{% trans "Purchase Now" %}
+						</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ------------------Banner4  end ------------------------>
+
+<!-- ------------------Banner3  start ------------------------>
+
+<section class="banner2 bg5 p-t-55 p-b-55">
+    <h4 style="font-weight: 500;"></h4>
+    <div class="">
+        <div class="row">
+            <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+                <div class="pos-relative">
+                    <img src="../media_root/shirt1.jpg" alt="IMG-BANNER" class="ban_img">
+
+                    <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+                        <br><br><br><br><br>
+                        <br><br><br><br><br>
+                        <span class="m-text9 p-t-45 fs-20-sm">
+
+						</span>
+
+                        <br>
+
+
+                        <div class="wrap-btn-slide1 w-size1 animated" data-appear="slideInUp">
+
+                            <a href="category/2" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite  trans-0-4">
+								{% trans "Purchase Now" %}
+							</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+                <div class="pos-relative">
+                    <img src="../media_root/banner-1.jpg" alt="IMG-BANNER" class="ban_img">
+
+                    <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+                        <br><br><br><br><br>
+                        <br><br><br><br><br>
+                        <span class="m-text9 p-t-45 fs-20-sm" style="color: white;">
+
+						</span>
+
+                        <br>
+
+
+                        <div class="wrap-btn-slide2 w-size1 animated" data-appear="slideInUp">
+
+                            <a href="category/3" class="flex-c-m size2 bo-rad-23 s-text2  trans-0-4" style="background-color: black; color:white;">
+								{% trans "Purchase Now" %}
+							</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- ------------------Banner3  end ------------------------>
+
+<!-- ------------------Banner5  start ------------------------>
+
+<section class="banner2 bg5 p-t-55 p-b-55">
+
+
+
+
+
+
+
+</section>
+<!-- ------------------Banner2  start ------------------------>
+
+
+
+
+
+<!-- Shipping -->
+<section class="shipping bgwhite p-t-62 p-b-46">
+    <div class="flex-w p-l-15 p-r-15">
+        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+            <h4 class="m-text12 t-center">
+                {% trans "Free Delivery" %}
+            </h4>
+
+            <a href="/livraregratuita" class="s-text11 t-center">
+				{% trans "Click here for more information" %}
+			</a>
+        </div>
+
+        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+            <h4 class="m-text12 t-center">
+                {% trans "30 Days Free Return" %}
+            </h4>
+
+            <span class="s-text11 t-center">
+				{% trans "Return the product within 30 days to receive a refund" %}
+			</span>
+        </div>
+
+        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+            <h4 class="m-text12 t-center">
+                {% trans "The store is open" %}
+            </h4>
+
+            <span class="s-text11 t-center">
+				{% trans "The store is open from Monday to Sunday 24/7" %}
+			</span>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+<script>
+    function addToCart(id) {
+        data = {
+            "item_id": id,
+            
+            "size": "M",
+            "Q": 1
+        }
+        var token = getCookie()
+        $.ajax({
+            type: "POST",
+            url: "/en/addtocart",
+            dataType: "json",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRFToken": token, // don't forget to include the 'getCookie' function
+            },
+            data: JSON.stringify(data),
+
+
+            success: function(data) {
+
+                document.getElementById("lblCartCount").innerHTML = data["count"];
+
+                if (data["msg"] == "Error") {
+                    swal(data["item"], data["msg"], "error");
+                } else {
+                    swal(data["item"], data["msg"], "success");
+                }
+
+
+
+                console.log(data);
+            }
+        })
+
+    }
+</script>
+
+{% endblock content %}

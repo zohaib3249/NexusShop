@@ -1,0 +1,93 @@
+
+{% load i18n %}
+{% load category_template_tags %}
+{% load cart_template_tags %}
+
+
+
+			
+				    <div id="myUL" class="row">
+                        {% for item in object_list %}
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 beeboo">
+                            <!-- Block2 -->
+
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+
+                                    <img src="{{ item.image.url }}" alt="IMG-PRODUCT" style="height: 360px;">
+
+
+                                    <div class="block2-overlay trans-0-4">
+
+
+
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+
+                                            {% if item.rQty > 0 %}
+                                            <button onclick="addToCart('{{item.id}}')" style="mouse:pointer"
+                                                class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                {% trans "Add To Cart" %}
+                                            </button>
+                                            {% else %}
+                                            <button style="mouse:pointer"
+                                                class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" disbaled
+                                                style="color:green">
+                                                {% trans "Out of Stock" %}
+                                            </button>
+                                            {% endif %}
+
+                                        </div>
+
+                                        <a href="/product_info/{{item.slug}}/"
+                                            class="flex-c-m size1 bo-rad-23  s-text1 trans-0-4" style="height:100%;">
+                                        </a>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div id="{{item.title}}" class="block2-txt p-t-20 tetos">
+                                    <a id="{{item.title}}a" href="{{item.get_absolute_url}}"
+                                        class="block2-name dis-block s-text3 p-b-5">
+                                        {{item.title}}
+                                    </a>
+
+                                    <span class="block2-price m-text6 p-r-5">
+
+                                        {% if item.discount_price %}
+                                        <span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem;">
+                                            {{item.price|to_int}} RON
+                                        </span>
+
+                                        <span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem;">
+                                            {{item.discount_price|to_int}} RON
+                                        </span>
+                                        {% else %}
+                                        <span class="m-text17">
+                                            {{item.price|to_int}} RON
+                                        </span>
+                                        {% endif %}
+
+
+
+
+
+                                    </span>
+                                </div>
+                            </div>
+
+                            </div>
+
+
+
+
+
+
+                        {% endfor %}
+
+
+                    </div>
+

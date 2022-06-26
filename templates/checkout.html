@@ -1,0 +1,184 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+   <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+    </style>
+  
+ 
+    <div class="container">
+  <div class="py-5 text-center">
+   <img src="{% static 'images/icons/icon-header-02.png' %}" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						<span class="header-icons-noti">0</span>
+    <h2>{% trans "Payment Form" %}</h2>
+    <p class="lead"></p>
+  </div>
+
+  <div class="row">
+
+
+    <div class="col-md-8 order-md-1 card" >
+    	
+      <h4 class="mb-3" style=" margin-top: 26px;">{% trans "Billing Address" %}</h4>
+      <form method="POST" class="needs-validation" novalidate>
+      	{% csrf_token %}
+        <div class="mb-3">
+          <label for="address">{% trans "Name" %}</label>
+          {{ form.name }}
+        </div>
+         <div class="mb-3">
+          <label for="email">{% trans "Email" %}</label>
+          {{ form.email }}
+        </div>
+        
+        
+
+        <div class="mb-3">
+          <label for="address">{% trans "Address" %}</label>
+          {{ form.street_address }}
+        </div>
+
+        <div class="mb-3">
+          <label for="address2"> {% trans "Phone Number"%}  <span class="text-muted"></span></label>
+          {{ form.apartment_address }}
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">{% trans "Country" %}</label>
+           		{{ form.country }}
+            <div class="invalid-feedback">
+              {% trans "Please select a valid country." %}
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">{% trans "Town" %}</label>
+            {{ form.oras }}
+            <div class="invalid-feedback">
+              {% trans "Please select a valid city." %}
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">{% trans "Postal Code" %}</label>
+            {{ form.zip }}
+            <div class="invalid-feedback">
+              {% trans "Postal code required." %}
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+       
+
+        <h4 class="mb-3">{% trans "Payment Methods" %}</h4>
+
+        <div class="d-block my-3">
+        	{% for value, name in form.fields.payment_option.choices %}
+          <div class="custom-control custom-radio">
+            <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" class="custom-control-input"  required>
+            <label class="custom-control-label" for="{{name}}">{{ name }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Continue to Pay" %}</button>
+      </form>
+    </div>
+
+    {% include "order_snippet.html" %}
+
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2018-2022 Nexus Gaming S.R.L.</p>
+
+  </footer>
+</div>
+<script>
+    function addCoupon(id) {
+     
+   
+      var code=document.getElementById("id_code").value;
+        data = {
+            "orderID": id,
+            "code": code,
+        }
+        console.log(data)
+        var token = getCookie()
+        $.ajax({
+            type: "POST",
+            url: "/en/addCoupon",
+            dataType: "json",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRFToken": token, // don't forget to include the 'getCookie' function
+            },
+            data: JSON.stringify(data),
+              
+
+            success: function(data) {
+
+               if(data["status"]=="ok")
+              {
+              
+                $("#applycoupenbyjs").addClass('list-group-item d-flex justify-content-between bg-light')
+                //document.getElementById("coupencode").innerHTML=data["coupen"];
+                var ht='<div class="text-success"><h6 class="my-0">{% trans "Promo Code" %}</h6><small>'+code
+
+                ht+='</small></div><span class="text-success" id="coupencode">'+data["amount"]+'RON</span>'
+                document.getElementById("applycoupenbyjs").innerHTML=ht
+
+              document.getElementById("aftercoupenprice").innerHTML=data["amount"]+"RON";
+                swal(data["coupen"], data["msg"], "success");
+              }
+              else{
+                swal("Error", data["msg"], "error");
+              }
+
+
+
+                console.log(data);
+            }
+        })
+      
+
+    }
+</script>
+
+{% endblock content %}
