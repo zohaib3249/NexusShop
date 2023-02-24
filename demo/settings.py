@@ -130,8 +130,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STRIPE_PUBLIC_KEY = 'pk_test_51LDsugJgULk81CRcMjbomvxv9WAX192uqfd7jx0YAFWyuP9hEdjgH4FYfo2jG6DdoxrcLN3LtE6ISm0esLjZzOlT00EX850iXS'
-STRIPE_SECRET_KEY = 'sk_test_51LDsugJgULk81CRcuFJ87OirGsaFVbCWES0CVkNZMispvTPongrLeSnDDMb27yr1cgAmsYVpMqKzsyi1PBeDPT8s00N0C6Flsg'
 
 """
 STRIPE_PUBLIC_KEY = 'pk_test_51LDtAOK4zvHCXzEsCWlPgJL7dix0IkvKlQifeaVwaHhLc7RYSmbySqm4es6kzwed6HuXsaPrN235HsT7hE8Dd3yo007UWsvgQb'
@@ -147,7 +145,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'easyfilesforu@gmail.com'
-EMAIL_HOST_PASSWORD = 'rkciaonksgveyxor'
-s="pk_test_51LDsugJgULk81CRcMjbomvxv9WAX192uqfd7jx0YAFWyuP9hEdjgH4FYfo2jG6DdoxrcLN3LtE6ISm0esLjZzOlT00EX850iXS"
-sk="sk_test_51LDsugJgULk81CRcuFJ87OirGsaFVbCWES0CVkNZMispvTPongrLeSnDDMb27yr1cgAmsYVpMqKzsyi1PBeDPT8s00N0C6Flsg"
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+
